@@ -1,6 +1,7 @@
 package com.example.exemplo_retrofit.network.service
 
 import com.example.exemplo_retrofit.network.bean.PollResponse
+import com.example.exemplo_retrofit.network.bean.StatsResponse
 import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.http.*
@@ -18,6 +19,9 @@ interface AppAPI {
 
     @GET("/poll")
     fun getAll(): Call<List<PollResponse>>
+
+    @GET("poll/{id}/stats")
+    fun getStatsById(@Path("id") id: Int): Call<StatsResponse>
 
     @POST("/poll/{id}/vote")
     fun sendVote(@Path("id") id: Int, @Body body: RequestBody): Call<Void>

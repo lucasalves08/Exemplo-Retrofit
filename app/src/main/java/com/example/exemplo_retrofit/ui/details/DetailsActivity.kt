@@ -29,7 +29,7 @@ class DetailsActivity : AppCompatActivity(), DetailsView {
         }
 
         btnVote.setOnClickListener {
-            if(id < 0){
+            if(id != -1){
                 presenter.vote(id, poll.id)
                 Utils.showShortToast("id: $id", this)
                 val alertDialog = AlertDialog.Builder(this)
@@ -52,8 +52,6 @@ class DetailsActivity : AppCompatActivity(), DetailsView {
         presenter = DetailsPresenterImpl(this, DetailsInteractorImpl(), this)
         presenter.getPollDetails(poll)
     }
-
-
 
     override fun fillDescription(pollResponse: PollResponse) {
         textDesc.text = pollResponse.description
