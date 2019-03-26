@@ -4,7 +4,8 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.support.v7.widget.StaggeredGridLayoutManager
+import android.view.View
+import android.widget.ProgressBar
 import com.example.exemplo_retrofit.R
 import com.example.exemplo_retrofit.network.bean.PollResponse
 import kotlinx.android.synthetic.main.activity_list.*
@@ -30,8 +31,9 @@ class ListActivity : AppCompatActivity(), ListView {
     }
 
     override fun loadPolllist(pollResponseList: List<PollResponse>) {
+        progressBar.visibility = View.VISIBLE
         recyclerView.adapter = ListAdapter(pollResponseList, this)
-
+        progressBar.visibility = View.GONE
 
     }
 

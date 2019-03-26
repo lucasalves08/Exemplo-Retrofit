@@ -1,6 +1,7 @@
 package com.example.exemplo_retrofit.network.bean
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 /**
  * Created by Lucas Alves dos Santos on 25/03/2019.
@@ -14,4 +15,4 @@ class Option (
 
     @SerializedName("option_description")
     var name: String
-)
+) : Serializable
