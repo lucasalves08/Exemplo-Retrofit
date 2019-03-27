@@ -27,8 +27,14 @@ class Utils {
             showToast(message, Toast.LENGTH_LONG, context)
         }
 
-        fun showAlertWithMessage( context: Context, message: String, dialogInterface: DialogInterface.OnClickListener){
+        fun showAlertWithMessage(context: Context, message: String) {
 
+            val alertDialog = AlertDialog.Builder(context)
+                .setTitle("Error")
+                .setMessage(message)
+                .setNeutralButton("Ok", null)
+                .setCancelable(true)
+            alertDialog.show()
         }
 
 

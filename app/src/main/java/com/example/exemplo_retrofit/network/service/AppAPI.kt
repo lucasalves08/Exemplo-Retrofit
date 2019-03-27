@@ -1,5 +1,7 @@
 package com.example.exemplo_retrofit.network.service
 
+import com.example.exemplo_retrofit.network.bean.NewPollRequest
+import com.example.exemplo_retrofit.network.bean.NewPollResponse
 import com.example.exemplo_retrofit.network.bean.PollResponse
 import com.example.exemplo_retrofit.network.bean.StatsResponse
 import okhttp3.RequestBody
@@ -25,6 +27,9 @@ interface AppAPI {
 
     @POST("/poll/{id}/vote")
     fun sendVote(@Path("id") id: Int, @Body body: RequestBody): Call<Void>
+
+    @POST("/poll")
+    fun createNewPoll(@Body request: NewPollRequest): Call<NewPollResponse>
 
     /*GET("/poll/{id}")
     fun getById(@Path("id") id:Int): PollResponse*/
